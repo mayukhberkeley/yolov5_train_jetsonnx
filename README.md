@@ -31,6 +31,11 @@ Do I already have an opencv installed, I think I do, that it really may be neede
 
 Building python-opencv version 4.1.2, this version is not available for install for aarch64
 
+Pre build instructions
+
+https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html
+
+
 `apt install -y qt4-default`
 
 `git clone https://github.com/opencv/opencv-python.git`
