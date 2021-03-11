@@ -114,7 +114,9 @@ torch             1.8.0a0
 torchvision       0.8.0a0+45f960c
 typing-extensions 3.7.4.3
 
-`git clone https://github.com/ultralytics/yolov5.git`
+`git clone https://github.com/ultralytics/
+
+v5.git`
 
 `cd yolov5`
 
@@ -131,6 +133,32 @@ Install setuptools and try again
 This will fail again, we will need to build torchvision >= 0.8.1
 
 Optionally download the wheel file for the torch 1.8.0 from here https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-8-0-now-available/72048
+
+
+Building grpcio would be too slow, instead try using python 37
+
+https://github.com/grpc/grpc/issues/20493
+
+
+`apt-get install python3.8`
+
+Fix the links 
+Then, install pip for python3.8
+
+`curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
+
+`python3.8 get-pip.py`
+
+
+opencv-python-4.5.1.48 causes a code dump segmentation fault with torch 1.8.0 ( torchvision 0.9.0 )
+
+
+There seems to be no wheel for matplotlib for aarch64 an cp36, there is one for cp37 though
+
+Need to build it from source
+
+
+
 
 
 
