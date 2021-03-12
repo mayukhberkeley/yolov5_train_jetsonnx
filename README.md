@@ -170,7 +170,14 @@ Built wheel for torch vision 0.8.1
 
 Now install opencv-python 
 
+This will build the wheel filep
 
+`pip3 install jupyterlab`
+
+`jupyter lab --ip 0.0.0.0 --port 8888 --allow-root --notebook_dir=/app`
+
+
+`sudo docker run --rm -it --runtime=nvidia --name pytorchcoco --shm-size=1G -v ~/w251/finalproject/app:/app -p 8888:8888 -p 6006:6006 pytorchcoco`
 
 
 
