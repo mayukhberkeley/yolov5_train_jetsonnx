@@ -162,6 +162,14 @@ There seems to be no wheel for matplotlib for aarch64 an cp36, there is one for 
 
 Need to build it from source
 
+Need to install Cmake
+
+Built wheel for torch vision 0.8.1
+
+`apt install cmake`
+
+Now install opencv-python 
+
 
 
 
