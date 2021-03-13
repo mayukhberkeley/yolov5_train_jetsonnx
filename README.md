@@ -154,9 +154,10 @@ Then, install pip for python3.8
 
 `python3.8 get-pip.py`
 
-
 opencv-python-4.5.1.48 causes a code dump segmentation fault with torch 1.8.0 ( torchvision 0.9.0 )
 
+
+Could be use to python 3.8, can't be for sure. reverting back to python 3.6
 
 There seems to be no wheel for matplotlib for aarch64 an cp36, there is one for cp37 though
 
@@ -178,6 +179,47 @@ This will build the wheel filep
 
 
 `sudo docker run --rm -it --runtime=nvidia --name pytorchcoco --shm-size=1G -v ~/w251/finalproject/app:/app -p 8888:8888 -p 6006:6006 pytorchcoco`
+
+
+running `pip3 install -r requirements.txt` from yolov5 again
+
+This is what you will see depending upon what you have already preinstalled
+
+Building wheels for collected packages: matplotlib, PyYAML, scipy, pandas, pycocotools, kiwisolver, grpcio
+  Running setup.py bdist_wheel for matplotlib ... -
+  
+_grpcio_ takes the most time, we have a wheel file prebuilt for that, apparently it is supposed to be faster with python 3.7 but we didn't try that
+
+it will install matplotlib now, may build from source, we already have 2.1.1 that came with apt install python3-matplotlib, this will throw during import, matplotlib 3.3.4 is needed
+
+basically, we are just getting nvcr.io/nvidia/l4t-pytorch:r32.4.4-pth1.6-py3
+
+Then we will install torch 1.7 from wheel file available in nvidia and torchvision 0.8.1 will be built locally (for cp36)
+
+opencv python will be build for version 4.5.1 locally for which we need to install CMake `apt install cmake`
+
+Building opencv 4.5.1 when torch 1.8.0 was installed, failed, we reverted to torch 1.7
+
+While running the Yolov5 training you may run into dateutil issues, so ensure you have the correct one
+
+pip3 install python-dateutil==2.7.3
+
+Again, when running training, you are in yolov5 folder since thats where train.py is
+ensure the valid, train and test are in a folder ../ w.r.t. yolov5 folder
+
+
+I strongly suggest using roboflow to fetch annotated images
+
+
+
+
+
+
+
+
+
+
+
 
 
 
