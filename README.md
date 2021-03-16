@@ -200,6 +200,12 @@ opencv python will be build for version 4.5.1 locally for which we need to insta
 
 Building opencv 4.5.1 when torch 1.8.0 was installed, failed, we reverted to torch 1.7
 
+opencv 4.5 brings in numpy 1.19.5 which causes import cv2 to crash.
+
+downgrade to 1.19.2 works
+
+or, use opencv-python==4.4.0.46, may need to compile it
+
 While running the Yolov5 training you may run into dateutil issues, so ensure you have the correct one
 
 pip3 install python-dateutil==2.7.3
