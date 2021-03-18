@@ -8,7 +8,6 @@ Run this to check what version of jetpack you are running
 
 `dpkg-query --show nvidia-l4t-core`
 
-
 What docker image to use in jetson, we are going to use pytorch
 
 Using tools like robolflow for annotation, we can also use labelImage
@@ -51,7 +50,7 @@ https://docs.opencv.org/master/d2/de6/tutorial_py_setup_in_ubuntu.html
 
 --runtime=nvidia is needed for python3 to find torch during `import torch`
 
-Fix the matplotlib issue, check is there is already e.g. matplotlib 2.1.1 from apt
+Fix the matplotlib issue, check if there is already e.g. matplotlib 2.1.1 from apt
 
 `sudo docker run --rm -it --runtime=nvidia --name pytorchcoco --shm-size=1G -v ~/w251/finalproject/app:/app -p 8888:8888 -p 6006:6006 pytorchcoco`
 
@@ -215,6 +214,24 @@ ensure the valid, train and test are in a folder ../ w.r.t. yolov5 folder
 
 
 I strongly suggest using roboflow to fetch annotated images
+
+
+### AWS - torch containers for the cloud 
+
+On the cloud image, you will see issues when importing cv2
+You will need to install the necessary libraries
+
+the cloud container is based on 
+
+FROM nvcr.io/nvidia/pytorch:21.02-py3
+
+This already comes with opencv 4.4.0 installed but it throws when importing
+
+Need to do the following to fix it
+
+`apt-get update`
+
+`apt-get install ffmpeg libsm6 libxext6  -y`
 
 
 
