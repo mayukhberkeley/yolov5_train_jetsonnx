@@ -215,6 +215,9 @@ ensure the valid, train and test are in a folder ../ w.r.t. yolov5 folder
 
 I strongly suggest using roboflow to fetch annotated images
 
+on jetson, progressbar from tqdm may not work properly in jupyter lab
+try updating the nodejs on the container
+try using notebook instead of lab
 
 ### AWS - torch containers for the cloud 
 
@@ -232,6 +235,9 @@ Need to do the following to fix it
 `apt-get update`
 
 `apt-get install ffmpeg libsm6 libxext6  -y`
+
+
+
 
 
 
